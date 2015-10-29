@@ -33,12 +33,12 @@
 		       (lambda (file)
 			 (make-instance 'multipart-vfile-node
 					:base base
-					:history (list file)
+					:path file
 					:contents (pathname file)))
 		       (lambda (directory subfiles)
 			 (make-instance 'multipart-vfile-directory-node
 					:base base
-					:history (list directory)
+					:path directory
 					:contents (pathname directory)
 					:children subfiles))
 		       :recurse-p recurse-p
