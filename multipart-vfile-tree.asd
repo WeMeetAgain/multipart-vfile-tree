@@ -5,7 +5,7 @@
   :description "Multipart extensions for vfile-tree."
   :author "Cayman Nava"
   :license "MIT"
-  :depends-on (:cl-ppcre :multipart-stream :path-string :vfile :vfile-tree)
+  :depends-on (:cl-ppcre :do-urlencode :multipart-stream :path-string :vfile :vfile-tree)
   :components ((:module "src"
         :serial t
 		:components

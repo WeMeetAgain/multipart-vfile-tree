@@ -4,6 +4,8 @@
   (:use #:cl)
   (:import-from #:cl-ppcre
                 #:regex-replace-all)
+  (:import-from #:do-urlencode
+		#:urlencode)
   (:import-from #:multipart-stream
                 #:multipart-stream
                 #:multipart-headers
