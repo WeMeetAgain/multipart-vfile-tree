@@ -28,15 +28,15 @@
 (defmethod vfile-open ((n multipart-vfile-directory-node) &rest rest)
   (apply #'make-multipart-stream (multipart-vfile-boundary n) (vfile-children n)))
 
-(defun make-multipart-vfile-tree (path &key (base (dirname path)) (recurse-p t) hidden-p)
+(defun make-multipart-vfile-tree (path &key (base (dirname path)) (recurse-p t) hidden-p (file-class 'multipart-vfile-node) (directory-class 'multipart-vfile-directory-node))
   (traverse-filesystem path
 		       (lambda (file)
-			 (make-instance 'multipart-vfile-node
+			 (make-instance file-class
 					:base base
 					:path file
 					:contents (pathname file)))
 		       (lambda (directory subfiles)
-			 (make-instance 'multipart-vfile-directory-node
+			 (make-instance directory-class
 					:base base
 					:path directory
 					:contents (pathname directory)
